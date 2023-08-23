@@ -5,6 +5,7 @@ const Question = ({ question, handleAnswer }) => {
 
     return (
         <>
+            <h1>{question.category}</h1>
             <h2>{question.question}</h2>
             <Options
                 options={question.options}
