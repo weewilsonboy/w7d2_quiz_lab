@@ -57,7 +57,14 @@ const Quiz = () => {
     const handled = listOfAnswers.map((answer, index) => (
         <li key={index}>
             Your answer for question {index + 1} was {answer.answer}, this was{" "}
-            {answer.correct ? <h2>Correct</h2> : <h2>Incorrect</h2>}
+            {answer.correct ? (
+                <h2>Correct</h2>
+            ) : (
+                <>
+                    <h2>Incorrect</h2>
+                    <p>The correct answer was {questions[index].answer}</p>
+                </>
+            )}
         </li>
     ));
     console.log(handled);
