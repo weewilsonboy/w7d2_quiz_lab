@@ -32,19 +32,25 @@ const Quiz = () => {
     const [listOfAnswers, setListOfAnswers] = useState([]);
 
     const handleAnswer = (selectedAnswer) => {
-        if (selectedAnswer == questions[currentQuestion].answer) {
-            const newScore = score + 1;
-            setListOfAnswers([
-                ...listOfAnswers,
-                { answer: selectedAnswer, correct: true },
-            ]);
-            setScore(newScore);
-        } else {
-            setListOfAnswers([
-                ...listOfAnswers,
-                { answer: selectedAnswer, correct: false },
-            ]);
-        }
+        // if (selectedAnswer == questions[currentQuestion].answer) {
+        //     const newScore = score + 1;
+        //     setListOfAnswers([
+        //         ...listOfAnswers,
+        //         { answer: selectedAnswer, correct: true },
+        //     ]);
+        //     setScore(newScore);
+        // } else {
+        //     setListOfAnswers([
+        //         ...listOfAnswers,
+        //         { answer: selectedAnswer, correct: false },
+        //     ]);
+        // }
+        selectedAnswer === questions[currentQuestion].answer ? 
+            (
+            setListOfAnswers([...listOfAnswers, { answer: selectedAnswer, correct: true }]),
+            setScore(score +1)
+            ) : (
+            setListOfAnswers([...listOfAnswers,{ answer: selectedAnswer, correct: false }]))
         const nextQuestion = currentQuestion + 1;
         setCurrentQuestion(nextQuestion);
     };
